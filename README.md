@@ -1,7 +1,5 @@
 <p align="center">
-
-<img src="src/assets/logo.png" width="300" alt="MicroLog Logo">
-
+    <img src="src/assets/logo.png" width="300" alt="YMD Logo">
 </p>
 
 <h1 align="center">YMD</h1>
@@ -41,6 +39,7 @@ Required software:
 
 - **Python** — runs YMD and its installation scripts.
 - **FFmpeg** — extracts audio and converts it to MP3.
+- **Git** — clones the YMD repository and its submodules.
 
 Python dependencies (`yt-dlp` and `platformdirs`) are installed automatically during setup.
 
@@ -49,19 +48,35 @@ Python dependencies (`yt-dlp` and `platformdirs`) are installed automatically du
 **Linux — Debian / Ubuntu:**
 
 ```bash
-sudo apt install python3 ffmpeg
+sudo apt install git python3 ffmpeg
 ```
 
 **Linux — Fedora:**
 
 ```bash
-sudo dnf install python3 ffmpeg
+sudo dnf install git python3 ffmpeg
 ```
 
 **Android — Termux:**
 
 ```bash
-pkg install python ffmpeg
+pkg update
+pkg install git python ffmpeg
+```
+
+## 📥 Download the source code
+
+Clone the repository, including its MicroLog submodule:
+
+```bash
+git clone --recurse-submodules https://github.com/Vitner4/YMD.git
+cd YMD
+```
+
+If you have already cloned the repository without its submodules, initialize them with:
+
+```bash
+git submodule update --init --recursive
 ```
 
 ## 🚀 Installation
@@ -85,6 +100,74 @@ ymd --help
 ```
 
 If `~/.local/bin` is not in your `PATH`, add it to your shell configuration.
+
+## 📱 Android Installation (Termux)
+
+Follow these steps to install YMD on Android.
+
+### 1. Install Termux
+
+Install Termux from [F-Droid](https://f-droid.org/packages/com.termux/) or its [official GitHub repository](https://github.com/termux/termux-app).
+
+### 2. Update packages and install dependencies
+
+Open Termux and run:
+
+```bash
+pkg update && pkg upgrade
+pkg install git python ffmpeg
+```
+
+### 3. Allow access to Android storage
+
+Run:
+
+```bash
+termux-setup-storage
+```
+
+Grant storage permission when Android prompts you.
+
+### 4. Download YMD
+
+Clone the repository and its submodules:
+
+```bash
+git clone --recurse-submodules https://github.com/Vitner4/YMD.git
+cd YMD
+```
+
+### 5. Install YMD
+
+Run the installer from the project directory:
+
+```bash
+python install.py
+```
+
+### 6. Verify the installation
+
+```bash
+ymd --help
+```
+
+### 7. Choose where to save downloaded media
+
+To save downloads to the Android Downloads folder:
+
+```bash
+ymd --path "$HOME/storage/downloads"
+```
+
+You can find downloaded files in the **Downloads** folder using your Android file manager.
+
+To check the configured download directory at any time, run:
+
+```bash
+ymd --get_path
+```
+
+**Note:** Keep the YMD project directory if you want to run `uninstall.py` later.
 
 ## 🕹️ Usage
 
@@ -145,4 +228,3 @@ YMD uses [yt-dlp](https://github.com/yt-dlp/yt-dlp) to retrieve media and [FFmpe
 - An internet connection is required.
 - Platform support may change over time.
 - Only download content when you have the right to do so and the platform's terms permit it.
-
