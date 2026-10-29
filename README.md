@@ -7,7 +7,7 @@
 <h1 align="center">YMD</h1>
 
 <p align="center">
-Downloads videos and convert to MP3.
+Downloads videos and converts audio to MP3.
 </p>
 
 ---
