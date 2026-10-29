@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ymd"
+version = "1.0.0"
+dependencies = ["yt-dlp", "platformdirs"]
+
+[project.scripts]
+ymd = "ymd.main:main"
+
+[tool.setuptools.packages.find]
+include = ["ymd*"]
