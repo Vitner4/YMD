@@ -1,0 +1,3 @@
+[submodule "ymd/lib/MicroLog"]
+	path = ymd/lib/MicroLog
+	url = https://github.com/Vitner4/MicroLog.git
